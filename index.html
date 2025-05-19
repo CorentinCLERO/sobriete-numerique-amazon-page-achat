@@ -17,7 +17,7 @@
       :root {
         --bg-color: #f9f9f9;
         --text-color: #222;
-        --header-bg: #e3e3e3;
+        --header-bg: #d8d8d8;
         --border-color: #bbb;
         --primary-color: #1a4d2e;
         --table-bg: #fff;
@@ -26,20 +26,24 @@
         --th-bad-bg: #ead6d6;
         --card-bg: #e3e3e3;
         --recommendations-bg: #f6fff8;
+        --text-on-header: #222;
+        --button-text: #fff;
       }
 
       [data-theme="dark"] {
         --bg-color: #222;
         --text-color: #f9f9f9;
-        --header-bg: #333;
+        --header-bg: #1a1a1a;
         --border-color: #444;
-        --primary-color: #4a8d5e;
+        --primary-color: #5fa67c;
         --table-bg: #333;
         --table-stripe: #2a2a2a;
         --th-bg: #1a4d2e;
         --th-bad-bg: #d63030;
         --card-bg: #333;
         --recommendations-bg: #2a2a2a;
+        --text-on-header: #fff;
+        --button-text: #fff;
       }
 
       html,
@@ -59,6 +63,7 @@
         position: sticky;
         top: 0;
         background: var(--header-bg);
+        color: var(--text-on-header);
         padding: 1rem;
         z-index: 10;
         border-bottom: 1px solid var(--border-color);
@@ -161,9 +166,9 @@
 
       /* Dark mode toggle button */
       .theme-toggle {
-        background: transparent;
+        background: var(--primary-color);
         border: 2px solid var(--primary-color);
-        color: var(--primary-color);
+        color: var(--button-text);
         padding: 0.5rem 1rem;
         border-radius: 6px;
         cursor: pointer;
@@ -172,8 +177,13 @@
       }
 
       .theme-toggle:hover {
-        background: var(--primary-color);
-        color: var(--bg-color);
+        background: transparent;
+        color: var(--primary-color);
+      }
+
+      .theme-toggle:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
       }
     </style>
   </head>
@@ -195,37 +205,74 @@
       <section class="section" id="presentation">
         <h2>1. Présentation du service</h2>
         <p>
-          Nous avons choisi d’auditer le service d’achat de biens sur Amazon.
-          Cette unité fonctionnelle couvre la recherche, la sélection, l’ajout
-          au panier, le paiement et la livraison d’un produit.
+          Pour ce projet, nous avons choisi d’auditer le service d’achat de
+          biens sur Amazon. Ce choix s’explique par le fait qu’Amazon est l’une
+          des plateformes les plus visitées au monde, avec des millions de
+          transactions chaque jour. Nous voulions ainsi analyser l’impact d’un
+          service numérique à très fort trafic, qui influence massivement les
+          usages et l’environnement.
+        </p>
+        <p>
+          L’unité fonctionnelle étudiée couvre l’ensemble du parcours
+          utilisateur : recherche d’un produit, sélection, ajout au panier,
+          paiement et livraison. Ce processus, apparemment simple, mobilise en
+          réalité d’importantes ressources techniques et logistiques.
+        </p>
+        <p>
+          <strong>Fait marquant :</strong> L’empreinte carbone d’Amazon a
+          atteint 71,54 millions de tonnes métriques équivalent CO₂ en 2021,
+          soit une hausse de 18 % par rapport à 2019. Cela représente autant
+          d’émissions que 180 centrales électriques au gaz en une année (<a
+            href="https://deklic.eco/quelle-est-lempreinte-carbone-damazon/"
+            target="_blank"
+            rel="noopener"
+            >source : Deklic</a
+          >).
         </p>
       </section>
+
       <section class="section" id="audit">
         <h2>2. Audit du service numérique</h2>
         <p>
-          <strong>Outils utilisés :</strong> Lighthouse, GreenIT, VoiceOver.
+          Pour évaluer la conception responsable du service, nous avons utilisé
+          trois outils complémentaires :
         </p>
         <ul>
           <li>
-            <strong>Lighthouse</strong> : évaluation des performances, de
-            l’accessibilité et du SEO pour détecter des axes d’optimisation.
+            <strong>Lighthouse</strong> (Google) : un outil open source intégré
+            à Chrome qui permet d’auditer les performances, l’accessibilité, les
+            bonnes pratiques et le SEO d’une page web. Il fournit des scores et
+            des recommandations concrètes pour améliorer l’expérience
+            utilisateur et la visibilité.
           </li>
           <li>
-            <strong>GreenIT</strong> : analyse de l’impact environnemental,
-            identification des éléments gourmands en ressources.
+            <strong>GreenIT Analysis</strong> : un service en ligne français qui
+            mesure l’impact environnemental d’une page web selon l’EcoIndex. Il
+            analyse la complexité du DOM, le poids des ressources et le nombre
+            de requêtes pour estimer la consommation énergétique et l’empreinte
+            carbone.
           </li>
           <li>
-            <strong>VoiceOver</strong> : test de l’accessibilité pour les
-            personnes malvoyantes ou non-voyantes.
+            <strong>VoiceOver</strong> (Apple) : le lecteur d’écran natif sur
+            Mac et iOS, utilisé pour tester l’accessibilité du site pour les
+            personnes malvoyantes ou non-voyantes. Il permet de vérifier la
+            bonne structuration des contenus, la présence d’alternatives
+            textuelles et la navigation au clavier.
           </li>
         </ul>
+        <p>
+          L’utilisation combinée de ces outils nous a permis d’obtenir une
+          vision globale : technique, environnementale et sociale.
+        </p>
       </section>
+
       <section class="section" id="utilite-odd">
         <h2>3. Utilité du service et rattachement aux ODD</h2>
         <p>
-          Le service facilite et automatise les achats, répondant à un besoin
-          d’efficacité pour particuliers et entreprises. Il optimise le temps et
-          la gestion des achats.
+          Le service d’achat Amazon répond à un besoin d’efficacité et de
+          simplicité pour les particuliers comme pour les entreprises. Il permet
+          de gagner du temps, de comparer facilement les offres et d’automatiser
+          les achats récurrents.
         </p>
         <div class="odds" aria-label="Objectifs de Développement Durable">
           <div class="odd">
@@ -242,16 +289,25 @@
           </div>
         </div>
         <p>
-          Points positifs : soutien à l’innovation et au commerce en ligne.<br />
-          Limites : risque de surconsommation, impact environnemental des
-          livraisons fréquentes.
+          <strong>Points positifs :</strong> Amazon favorise l’innovation
+          technologique (ODD 9) et soutient la croissance économique (ODD 8) en
+          créant de nombreux emplois et en facilitant l’accès au commerce en
+          ligne pour des millions de personnes.
+        </p>
+        <p>
+          <strong>Limites :</strong> Le modèle d’Amazon encourage la
+          surconsommation et la livraison rapide, ce qui va à l’encontre de
+          l’ODD 12 (consommation responsable) et de l’ODD 13 (lutte contre le
+          changement climatique), en générant un fort impact environnemental et
+          des émissions de CO₂ importantes.
         </p>
       </section>
+
       <section class="section" id="analyse">
         <h2>4. Analyse de la conception responsable</h2>
         <p>
-          Synthèse des points forts et faibles identifiés via Lighthouse et
-          GreenIT :
+          Voici une synthèse des points forts et faibles identifiés grâce à nos
+          audits :
         </p>
         <table>
           <thead>
@@ -305,6 +361,7 @@
           CO₂/page vue (estimation).
         </p>
       </section>
+
       <section class="section" id="recommandations">
         <h2>5. Recommandations pour une conception plus responsable</h2>
         <div class="recommendations">
@@ -332,17 +389,51 @@
           </ul>
         </div>
       </section>
+
       <section class="section" id="autres-infos">
         <h2>6. Autres informations pertinentes</h2>
         <p>
           <strong>Cycle de vie :</strong> L’impact du service s’étend de la
           conception (choix techniques, sobriété) à l’utilisation (navigation,
-          achats, livraison) et à la fin de vie (recyclage, obsolescence).
+          achats, livraison) et à la fin de vie (recyclage, obsolescence). Par
+          exemple, la durée de vie des serveurs et des terminaux influence
+          l’empreinte globale du service.
         </p>
         <p>
-          <strong>Répartition des impacts :</strong> 60% usage (navigation,
-          achats), 30% infrastructure (serveurs, data centers), 10% terminaux
-          utilisateurs (PC, smartphones).
+          <strong>Répartition des impacts :</strong> Selon GreenIT, pour un
+          service numérique, environ 60 % de l’impact provient de l’usage
+          (navigation, achats), 30 % de l’infrastructure (serveurs, data
+          centers) et 10 % des terminaux utilisateurs (PC, smartphones).
+        </p>
+        <p>
+          <strong>Limites de notre audit :</strong> Nous avons principalement
+          analysé la page d’achat, sans pouvoir tester l’ensemble des
+          fonctionnalités ou mesurer l’impact exact de chaque service Amazon. De
+          plus, certains aspects comme la logistique ou la gestion des retours
+          restent difficiles à quantifier précisément.
+        </p>
+        <p>
+          <strong>Pour aller plus loin :</strong> Il serait pertinent de
+          comparer Amazon à d’autres plateformes e-commerce, d’intégrer des
+          tests utilisateurs en situation réelle, et de suivre l’évolution des
+          pratiques d’écoconception dans le temps.
+        </p>
+        <p>
+          <strong>Ressources utiles :</strong>
+          <a href="https://web.dev/measure/" target="_blank" rel="noopener"
+            >Lighthouse</a
+          >
+          |
+          <a href="https://www.ecoindex.fr/" target="_blank" rel="noopener"
+            >GreenIT / EcoIndex</a
+          >
+          |
+          <a
+            href="https://support.apple.com/fr-fr/guide/voiceover/welcome/mac"
+            target="_blank"
+            rel="noopener"
+            >VoiceOver</a
+          >
         </p>
       </section>
     </main>
