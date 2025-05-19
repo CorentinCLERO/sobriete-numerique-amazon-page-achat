@@ -1,11 +1,287 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World</title>
+    <title>Sobriété numérique – Audit Amazon</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        scroll-behavior: smooth;
+        font-family: system-ui, Arial, sans-serif;
+        background: #f9f9f9;
+        color: #222;
+      }
+      body {
+        min-height: 100vh;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        background: #e3e3e3;
+        padding: 1rem;
+        z-index: 10;
+        border-bottom: 1px solid #bbb;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 5vh;
+      }
+      h1 {
+        margin: 0 0 0.5rem 0;
+        color: #1a4d2e;
+        font-size: 1.5rem;
+      }
+      .section {
+        height: 95vh;
+        min-height: 95vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        scroll-snap-align: start;
+        padding: 2rem 1rem 1rem 1rem;
+        box-sizing: border-box;
+      }
+      main {
+        scroll-snap-type: y mandatory;
+        overflow-y: auto;
+        height: 90vh;
+      }
+      h2 {
+        color: #1a4d2e;
+        margin-top: 0;
+      }
+      table {
+        width: 100%;
+        max-width: 700px;
+        border-collapse: collapse;
+        background: #fff;
+        margin: 1rem 0;
+      }
+      th,
+      td {
+        border: 1px solid #bbb;
+        padding: 0.5rem;
+        text-align: left;
+      }
+      th {
+        background: #d6eadf;
+      }
+      tr:nth-child(even) {
+        background: #f2f2f2;
+      }
+      .scores,
+      .odds {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 1rem 0;
+        justify-content: center;
+      }
+      .score,
+      .odd {
+        background: #e3e3e3;
+        border-radius: 6px;
+        padding: 0.5rem 1rem;
+        min-width: 120px;
+        text-align: center;
+      }
+      .odd {
+        background: #d6eadf;
+      }
+      .recommendations {
+        background: #f6fff8;
+        border-left: 4px solid #1a4d2e;
+        padding: 1rem;
+        margin: 1rem 0;
+        max-width: 700px;
+      }
+      @media (max-width: 700px) {
+        .section {
+          padding: 1rem 0.2rem;
+        }
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+          display: block;
+        }
+        th,
+        td {
+          padding: 0.5rem 0.2rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <header>
+      <h1>Sobriété numérique : Audit du service d’achat Amazon</h1>
+      <p>
+        <strong>Présenté par :</strong> Fatat TARRAF, Brice KUCA, Daniel
+        MONTEIRO, Prashath SIVAYANAMA, Corentin CLERO<br />
+        <strong>Pour :</strong> Mme Murielle TIMSIT
+      </p>
+    </header>
+    <main>
+      <section class="section" id="presentation">
+        <h2>1. Présentation du service</h2>
+        <p>
+          Nous avons choisi d’auditer le service d’achat de biens sur Amazon.
+          Cette unité fonctionnelle couvre la recherche, la sélection, l’ajout
+          au panier, le paiement et la livraison d’un produit.
+        </p>
+      </section>
+      <section class="section" id="audit">
+        <h2>2. Audit du service numérique</h2>
+        <p>
+          <strong>Outils utilisés :</strong> Lighthouse, GreenIT, VoiceOver.
+        </p>
+        <ul>
+          <li>
+            <strong>Lighthouse</strong> : évaluation des performances, de
+            l’accessibilité et du SEO pour détecter des axes d’optimisation.
+          </li>
+          <li>
+            <strong>GreenIT</strong> : analyse de l’impact environnemental,
+            identification des éléments gourmands en ressources.
+          </li>
+          <li>
+            <strong>VoiceOver</strong> : test de l’accessibilité pour les
+            personnes malvoyantes ou non-voyantes.
+          </li>
+        </ul>
+      </section>
+      <section class="section" id="utilite-odd">
+        <h2>3. Utilité du service et rattachement aux ODD</h2>
+        <p>
+          Le service facilite et automatise les achats, répondant à un besoin
+          d’efficacité pour particuliers et entreprises. Il optimise le temps et
+          la gestion des achats.
+        </p>
+        <div class="odds" aria-label="Objectifs de Développement Durable">
+          <div class="odd">
+            <strong>ODD 8</strong><br />Travail décent & croissance économique
+          </div>
+          <div class="odd">
+            <strong>ODD 9</strong><br />Industrie, innovation & infrastructure
+          </div>
+          <div class="odd">
+            <strong>ODD 12</strong><br />Consommation & production responsables
+          </div>
+          <div class="odd">
+            <strong>ODD 13</strong><br />Lutte contre le changement climatique
+          </div>
+        </div>
+        <p>
+          Points positifs : soutien à l’innovation et au commerce en ligne.<br />
+          Limites : risque de surconsommation, impact environnemental des
+          livraisons fréquentes.
+        </p>
+      </section>
+      <section class="section" id="analyse">
+        <h2>4. Analyse de la conception responsable</h2>
+        <p>
+          Synthèse des points forts et faibles identifiés via Lighthouse et
+          GreenIT :
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Critère</th>
+              <th scope="col">Point fort</th>
+              <th scope="col">Point faible</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Accessibilité</td>
+              <td>Respect des normes WCAG, balises ARIA, navigation clavier</td>
+              <td>Pages denses, parfois peu adaptées aux lecteurs d’écran</td>
+            </tr>
+            <tr>
+              <td>Performance</td>
+              <td>
+                Chargement différé des images, design responsive, CDN efficace
+              </td>
+              <td>Temps de chargement élevé sur mobile, scripts JS lourds</td>
+            </tr>
+            <tr>
+              <td>Écoconception</td>
+              <td>Hébergement cloud optimisé (AWS)</td>
+              <td>Pages lourdes, éléments inutiles, manque de sobriété</td>
+            </tr>
+            <tr>
+              <td>Qualité du code</td>
+              <td>Structure claire, maintenance active</td>
+              <td>Dépendance à de nombreuses bibliothèques, complexité</td>
+            </tr>
+            <tr>
+              <td>Impact environnemental</td>
+              <td>Data centers plus verts (énergie renouvelable)</td>
+              <td>
+                Livraisons fréquentes = forte émission CO₂, tracking invasif
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="scores" aria-label="Scores d'audit">
+          <div class="score"><strong>Performance</strong><br />61/100</div>
+          <div class="score"><strong>Accessibilité</strong><br />77/100</div>
+          <div class="score"><strong>Bonnes pratiques</strong><br />93/100</div>
+          <div class="score"><strong>SEO</strong><br />83/100</div>
+        </div>
+        <p>
+          <em>Ordres de grandeur :</em> Score EcoIndex :
+          <strong>D (45/100)</strong> – Impact environnemental moyen, 1,2g
+          CO₂/page vue (estimation).
+        </p>
+      </section>
+      <section class="section" id="recommandations">
+        <h2>5. Recommandations pour une conception plus responsable</h2>
+        <div class="recommendations">
+          <ul>
+            <li>
+              Optimiser la taille et la compression des images, activer le cache
+              navigateur.
+            </li>
+            <li>
+              Minifier les fichiers CSS/JS, utiliser des polices standards.
+            </li>
+            <li>
+              Limiter les scripts tiers et les animations non essentielles.
+            </li>
+            <li>Améliorer la gestion des cookies et la sobriété des pages.</li>
+            <li>
+              Rendre certaines fonctionnalités optionnelles (ex : animations,
+              pubs).
+            </li>
+            <li>Favoriser des palettes de couleurs sobres et accessibles.</li>
+            <li>
+              Réduire la fréquence des livraisons rapides pour limiter le CO₂
+              logistique.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="section" id="autres-infos">
+        <h2>6. Autres informations pertinentes</h2>
+        <p>
+          <strong>Cycle de vie :</strong> L’impact du service s’étend de la
+          conception (choix techniques, sobriété) à l’utilisation (navigation,
+          achats, livraison) et à la fin de vie (recyclage, obsolescence).
+        </p>
+        <p>
+          <strong>Répartition des impacts :</strong> 60% usage (navigation,
+          achats), 30% infrastructure (serveurs, data centers), 10% terminaux
+          utilisateurs (PC, smartphones).
+        </p>
+      </section>
+    </main>
   </body>
 </html>
